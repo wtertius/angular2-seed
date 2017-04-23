@@ -10,6 +10,10 @@ import schemes from './contact.schemes';
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
+  state:{
+      action:string,
+      position:string
+  };
   scheme: any[];
   actions: {};
   positionAbilities: {};
@@ -23,11 +27,30 @@ export class ContactComponent implements OnInit {
       content: ['', [Validators.required, Validators.minLength(10)]]
     });
 
+    this.state = {
+        action: "shadow",
+        position: "american_grip"
+    };
+
     this.actions = this.getActions();
     this.positions = schemes.positions;
     this.positionAbilities = this.getPositionAbilities(schemes.actions);
 
     this.scheme = this.generateScheme(20);
+
+    // TODO Check video exists for each action
+  }
+  updateState(elem: {kind: string, name: string}) {
+    switch (elem.kind) {
+        case "action":
+            this.state.action = elem.name;
+            break;
+        case "position":
+            this.state.position = elem.name;
+            break;
+        default:
+            console.log("Can't recognize element: "+elem);
+    }
   }
   submitForm(): void {
     console.log(this.contactForm);
@@ -40,7 +63,8 @@ export class ContactComponent implements OnInit {
 
     var currentPosition = schemes.startPosition;
     scheme.push({
-        position: currentPosition,
+        kind: "position",
+        name: currentPosition,
         image_url: ""
     });
 
@@ -59,11 +83,13 @@ export class ContactComponent implements OnInit {
         currentPosition = end;
 
         scheme.push({
-            action: action,
+            kind: "action",
+            name: action,
             video_url: ""
         });
         scheme.push({
-            position: end,
+            kind: "position",
+            name: end,
             image_url: ""
         });
     }

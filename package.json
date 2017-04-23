@@ -1,7 +1,7 @@
 {
-  "name": "angular2-seed",
+  "name": "dance-scheme-generator",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "Dance scheme generator",
   "scripts": {
     "build": "webpack --progress",
     "watch": "npm run build -- --watch",
@@ -9,10 +9,9 @@
     "start": "npm run server"
   },
   "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+    "Dmitry <wtertius@gmail.com>"
   ],
-  "license": "MIT",
+  "license": "Commercial",
   "dependencies": {
     "@angular/common": "~2.2.1",
     "@angular/compiler": "~2.2.1",
@@ -47,10 +46,9 @@
     "webpack-merge": "^0.15.0"
   },
   "keywords": [
-    "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
+    "dance",
+    "hustle",
+    "scheme generator",
   ],
   "repository": {
     "type": "git",

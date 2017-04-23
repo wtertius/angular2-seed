@@ -1,39 +1,33 @@
-<h2>Contact Reactive Form</h2>
+<h2>Hustle scheme generator</h2>
 
-<form (ngSubmit)="submitForm()" [formGroup]="contactForm" novalidate>
-  <div class="form-content">
-    <label>
-      Name:
-      <input type="text" formControlName="name" class="sd-form-control" placeholder="Enter your name.">
-    </label>
-    <label>
-      Email:
-      <input type="email" formControlName="email" class="sd-form-control" placeholder="Enter your email.">
-    </label>
-    <label>
-      Content:
-      <textarea formControlName="content" class="sd-form-control" placeholder="Content here."></textarea>
-    </label>
-    <div class="form-submit">
-      <button type="submit">Submit</button>
+<div class="scheme">
+    <div class="series">
+        <div *ngFor="let elem of scheme">
+            <div class="kind-{{elem.kind}}" (click)="updateState(elem)">
+                <img src="public/image/dancing_couple_{{elem.kind}}.jpg">
+                <div class="name">{{elem.name}}</div>
+            </div>
+        </div>
     </div>
-  </div>
-</form>
 
-<div class="form-value">
-  Form value:
-  <pre>
-    {{scheme | json}}
-  </pre>
-  <pre>
-    {{contactForm.value | json}}
-  </pre>
-  <p>
-    Status: {{contactForm.status}}
-  </p>
-  <p>
-    Valid: {{contactForm.valid}}
-  </p>
-  <p>Submit then open console to see full form.</p>
+    <div class="demo">
+        <div class="position-image">
+            <div class="name">
+                Position: {{state.position}}
+            </div>
+            <div class="image">
+                <img src="public/image/position/{{state.position}}.png">
+            </div>
+        </div>
+        <div class="action-video">
+            <div class="name">
+                Action: {{state.action}}
+            </div>
+            <div class="video">
+                <video width="400" src="public/video/action/{{state.action}}.mp4" controls>
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+        </div>
+    </div>
 </div>
-

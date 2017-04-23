@@ -1,11 +1,16 @@
 export default class schemes {
     static startPosition = "straight_grip";
+    // TODO Choose level: "beginner", "middle", "professional"
     static actions = {
         "under_wing": {
             "begin": "straight_grip",
             "end": "straight_grip"
         },
         "top_change": {
+            "begin": "straight_grip",
+            "end": "straight_grip"
+        },
+        "male_top_change": {
             "begin": "straight_grip",
             "end": "straight_grip"
         },
@@ -92,6 +97,10 @@ export default class schemes {
         "cross": {
             "begin": "straight_grip",
             "end": "straight_grip"
+        },
+        "half_rope": {
+            "begin": "straight_grip",
+            "end": "straight_grip"
         }
     };
     static positions = {
@@ -100,9 +109,8 @@ export default class schemes {
         }
     };
     static video = {
-        "action": "",
-        "begin": "",
-        "end": "",
-        "video": ""
+        "shadow":{
+            "mirrow_grip>mirrow_grip": "public/video/shadow.pm4"
+        }
     };
 }
