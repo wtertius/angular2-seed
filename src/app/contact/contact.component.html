@@ -1,32 +1,36 @@
-<div class="scheme">
-	<h2>Hustle scheme generator</h2>
+<div class="scheme-generator">
+    <h2>Hustle scheme generator</h2>
 
-    <div class="series">
-        <div *ngFor="let elem of scheme">
-            <div class="kind-{{elem.kind}}" (click)="updateState(elem)">
-                <img src="public/image/dancing_couple_{{elem.kind}}.jpg">
-                <div class="name">{{elem.name}}</div>
+    <div class="scheme">
+        <div class="scheme-row">
+            <div class="series">
+                <div *ngFor="let elem of scheme">
+                    <div class="kind-{{elem.kind}}" (click)="updateState(elem)">
+                        <img src="public/image/dancing_couple_{{elem.kind}}.jpg">
+                        <div class="name">{{elem.name}}</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="demo">
-        <div class="position-image">
-            <div class="name">
-                Position: {{state.position}}
-            </div>
-            <div class="image">
-                <img src="public/image/position/{{state.position}}.png">
-            </div>
-        </div>
-        <div class="action-video">
-            <div class="name">
-                Action: {{state.action}}
-            </div>
-            <div class="video">
-                <video width="400" src="public/video/action/{{state.action}}.mp4" controls>
-                    Your browser does not support HTML5 video.
-                </video>
+            <div class="demo">
+                <div class="position-image">
+                    <div class="name">
+                        Position: {{state.position}}
+                    </div>
+                    <div class="image">
+                        <img src="public/image/position/{{state.position}}.png">
+                    </div>
+                </div>
+                <div class="action-video">
+                    <div class="name">
+                        Action: {{state.action}}
+                    </div>
+                    <div class="video">
+                        <video width="400" src="public/video/action/{{state.action}}.mp4" controls>
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
