@@ -6,7 +6,7 @@ export default class schemes {
             "begin": "straight_grip",
             "end": ["under_wing_position", "ready_to_twist"]
         },
-        "twist_tree": {
+        "twist_three": {
             "begin": "ready_to_twist",
             "end": ["straight_grip"]
         },
@@ -14,7 +14,6 @@ export default class schemes {
             "begin": "under_wing_position",
             "end": "straight_grip"
         },
-
         "under_wing_reflection": {
             "begin": "under_wing_position",
             "end": "under_wing_position"
@@ -120,14 +119,14 @@ export default class schemes {
         },
         "roll_in": {
             "begin": "opened_position",
-            "end": ["rolled_in", "under_wing_position", "american_grip", "anti_american_grip"]
+            "end": ["under_wing_position", "american_grip", "anti_american_grip"]
         },
         "support_american": {
             "begin": "american_grip",
             "end": "american_grip"
         },
         "roll_out": {
-            "begin": "rolled_in",
+            "begin": "under_wing_position",
             "end": ["opened_position", "side_grip", "roped_in"]
         },
         "roll_back": {
@@ -153,6 +152,14 @@ export default class schemes {
         "rolling_in_front": {
             "begin": ["rolled_in", "american_grip"],
             "end": ["anti_american_grip"]
+        },
+        "american_grip_reflection": {
+            "begin": "american_grip",
+            "end": "anti_american_grip"
+        },
+        "anti_american_grip_reflection": {
+            "begin": "anti_american_grip",
+            "end": "american_grip"
         },
         "complex_rope": {
             "begin": "straight_grip",
