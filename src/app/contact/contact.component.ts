@@ -12,8 +12,9 @@ import dictionary from './contact.dictionary';
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   state:{
-      action:string,
-      position:string
+      position: string,
+      action:   string,
+      video:    string
   };
   scheme: any[];
   actions: {};
@@ -30,6 +31,7 @@ export class ContactComponent implements OnInit {
 
     this.state = {
         action: "shadow",
+        video: "",
         position: "american_grip"
     };
 
@@ -43,10 +45,11 @@ export class ContactComponent implements OnInit {
 
     // TODO Check video exists for each action
   }
-  updateState(elem: {kind: string, name: string}) {
+  updateState(elem) {
     switch (elem.kind) {
         case "action":
             this.state.action = elem.name;
+            this.state.video  = elem.video;
             break;
         case "position":
             this.state.position = elem.name;
@@ -88,7 +91,7 @@ export class ContactComponent implements OnInit {
         scheme.push({
             kind: "action",
             name: action,
-            video_url: action + "__" + currentPosition + "__" + end // TODO video_url
+            video: action + "__" + currentPosition + "__" + end
         });
         scheme.push({
             kind: "position",
