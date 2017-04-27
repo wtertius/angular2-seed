@@ -191,14 +191,4 @@ export default class schemes {
             "end": "straight_grip"
         }
     };
-    static positions = {
-        "straight_grip": {
-            "img": ""
-        }
-    };
-    static video = {
-        "shadow":{
-            "mirror_grip>mirror_grip": "public/video/shadow.pm4"
-        }
-    };
 }

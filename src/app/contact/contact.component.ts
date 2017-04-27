@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import CustomValidators from '../forms/CustomValidators';
 import schemes from './contact.schemes';
+import dictionary from './contact.dictionary';
 
 @Component({
   selector: 'app-contact',
@@ -17,7 +18,7 @@ export class ContactComponent implements OnInit {
   scheme: any[];
   actions: {};
   positionAbilities: {};
-  positions: {};
+  translations: {};
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -33,7 +34,9 @@ export class ContactComponent implements OnInit {
     };
 
     this.actions = this.getActions();
-    this.positions = schemes.positions;
+    this.translations = this.buildTranslations();
+    //this.actions = this.translate();
+
     this.positionAbilities = this.getPositionAbilities(schemes.actions);
 
     this.scheme = this.generateScheme(20);
@@ -85,7 +88,7 @@ export class ContactComponent implements OnInit {
         scheme.push({
             kind: "action",
             name: action,
-            video_url: ""
+            video_url: action + "__" + currentPosition + "__" + end // TODO video_url
         });
         scheme.push({
             kind: "position",
@@ -137,6 +140,40 @@ export class ContactComponent implements OnInit {
     }
 
     return actions;
+  }
+
+  t(name) {
+      return this.translations[name] || name;
+  }
+
+  buildTranslations() {
+    if (!dictionary.shouldBeUpdated) {
+        return dictionary.translations;
+    }
+
+    var translations = dictionary.translations;
+
+    for (var action in this.actions) {
+        if (translations[action] === undefined) {
+            translations[action] = "";
+        }
+
+        var desc = this.actions[action];
+        for (var i in desc.begin) {
+            var position = desc.begin[i];
+            if (translations[position] === undefined) {
+                translations[position] = "";
+            }
+        }
+        for (var i in desc.end) {
+            var position = desc.end[i];
+            if (translations[position] === undefined) {
+                translations[position] = "";
+            }
+        }
+    }
+
+    return translations;
   }
   getPositionAbilities(actions) {
     var positionAbilities = {};

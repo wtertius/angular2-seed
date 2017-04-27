@@ -7,7 +7,7 @@
                 <div *ngFor="let elem of scheme">
                     <div class="kind-{{elem.kind}}" (click)="updateState(elem)">
                         <img src="public/image/dancing_couple_{{elem.kind}}.jpg">
-                        <div class="name">{{elem.name}}</div>
+                        <div class="name">{{ t(elem.name) }}</div>
                     </div>
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="demo">
                 <div class="position-image">
                     <div class="name">
-                        Position: {{state.position}}
+                        Position: {{ t(state.position) }}
                     </div>
                     <div class="image">
                         <img src="public/image/position/{{state.position}}.png">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="action-video">
                     <div class="name">
-                        Action: {{state.action}}
+                        Action: {{ t(state.action) }}
                     </div>
                     <div class="video">
                         <video width="400" src="public/video/action/{{state.action}}.mp4" controls>
