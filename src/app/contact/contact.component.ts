@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
 
     this.state = {
         action: "shadow",
-        video: "",
+        video: "shadow__mirror_grip__shadow_position",
         position: "american_grip"
     };
 
@@ -43,6 +43,7 @@ export class ContactComponent implements OnInit {
 
     this.scheme = this.generateScheme(20);
 
+    document.querySelector('video').defaultPlaybackRate = 0.5;
     // TODO Check video exists for each action
   }
   updateState(elem) {
@@ -58,9 +59,11 @@ export class ContactComponent implements OnInit {
             console.log("Can't recognize element: "+elem);
     }
   }
-  submitForm(): void {
-    console.log(this.contactForm);
+
+  changeVideoRate() {
+      document.querySelector('video').playbackRate = parseFloat((<HTMLInputElement>document.getElementById('rateSlider')).value);
   }
+
   generateScheme(actionNumber) {
     var usedActions = {};
 

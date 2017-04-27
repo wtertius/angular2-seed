@@ -25,6 +25,10 @@
                     <div class="name">
                         Action: {{ t(state.action) }}
                     </div>
+                    <label>
+                        Video speed:
+                        <input type="range" step="0.1" min="0.5" max="1.5" value="0.5" id="rateSlider" (change)="changeVideoRate()">
+                    </label>
                     <div class="video">
                         <video width="400" src="public/video/action/{{state.video}}.mp4" controls>
                             Your browser does not support HTML5 video.

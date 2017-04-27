@@ -46,7 +46,7 @@ export default class dictionary {
         "under_wing_mirror_change": "",
         "under_wing_mirror_in": "",
         "under_wing_mirror_out": "",
-        "under_wing_out": "Выходи из под крыла",
+        "under_wing_out": "Выход из под крыла",
         "under_wing_reflection": "",
         "waltz": "Вальс",
         // Positions
