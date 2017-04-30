@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import CustomValidators from '../forms/CustomValidators';
 import schemes from './contact.schemes';
 import dictionary from './contact.dictionary';
-import {PageScrollConfig} from 'ng2-page-scroll';
+import {PageScrollConfig, PageScrollInstance, PageScrollService} from 'ng2-page-scroll';
 
 @Component({
   selector: 'app-contact',
@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
   actions: {};
   positionAbilities: {};
   translations: {};
-  constructor() {
+  constructor(private pageScrollService: PageScrollService) {
       PageScrollConfig.defaultDuration = 200;
   }
 
@@ -36,7 +36,6 @@ export class ContactComponent implements OnInit {
 
     this.actions = this.getActions();
     this.translations = this.buildTranslations();
-    //this.actions = this.translate();
     this.positionAbilities = this.getPositionAbilities(schemes.actions);
 
     this.schemeLength = 20;
@@ -44,13 +43,15 @@ export class ContactComponent implements OnInit {
     this.scheme = this.generateScheme(this.schemeLength);
 
     this.schemeByColumns = this.divideSchemeByColumns()
-    console.log(this.schemeByColumns);
 
     document.querySelector('video').defaultPlaybackRate = 0.5;
     // TODO Check video exists for each action
   }
   getColumnCount() {
       return Math.ceil(this.schemeLength);
+  }
+  scrollToSchemeBegin() {
+    this.pageScrollService.start(PageScrollInstance.simpleInstance(document, '#column-0'));
   }
   updateState(elem) {
     switch (elem.kind) {
@@ -62,7 +63,7 @@ export class ContactComponent implements OnInit {
             this.state.position = elem.name;
             break;
         default:
-            console.log("Can't recognize element: "+elem);
+            console.error("Can't recognize element: "+elem);
     }
   }
 
@@ -173,7 +174,7 @@ export class ContactComponent implements OnInit {
         }
 
         if (desc.begin === undefined) {
-            console.log("Action '"+action
+            console.error("Action '"+action
                 +"' doesn't have begin in description '"+desc+"' ");
             continue;
         }
