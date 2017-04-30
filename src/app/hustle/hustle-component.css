@@ -20,7 +20,7 @@ h2 {
     min-width: 400px;
     min-height: 200px;
 
-    height: 93%; /* src/app/contact/contact.component.ts : columnHeightFraction */
+    height: 93%; /* src/app/hustle/hustle.component.ts : columnHeightFraction */
 
     overflow: auto;
 }
