@@ -3,12 +3,16 @@
 
     <div class="scheme">
         <div class="series row">
-            <div *ngFor="let column of schemeByColumns" class="column col-md-4">
+            <div *ngFor="let column of schemeByColumns; let i = index; let
+                last=last" class="column col-md-4" id="column-{{i}}">
                 <div *ngFor="let elem of column">
                     <div class="kind-{{elem.kind}}" (click)="updateState(elem)">
                         <img src="public/image/dancing_couple_{{elem.kind}}.jpg">
                         <div class="name">{{ t(elem.name) }}</div>
                     </div>
+                </div>
+                <div *ngIf="!last" class="arrow">
+                    <a pageScroll href="#column-{{i+1}}">&#8623;</a>
                 </div>
             </div>
         </div>
