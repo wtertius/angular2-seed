@@ -10,3 +10,6 @@ rsync -avz ./src/public/*           $DEST/public/ \
 
 rsync -avz ./etc/nginx/vhosts/danceranger.com/* $SERVER:/etc/nginx/vhosts/danceranger.com/ \
     --exclude-from=./deploy/rsync.exclude --delete &
+
+sleep 1;
+echo;

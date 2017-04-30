@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Dance scheme generator",
   "scripts": {
-    "build": "webpack --progress",
+    "build": "webpack --progress -p",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
     "start": "npm run server"
