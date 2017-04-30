@@ -38,7 +38,7 @@ export class ContactComponent implements OnInit {
     this.translations = this.buildTranslations();
     this.positionAbilities = this.getPositionAbilities(schemes.actions);
 
-    this.schemeLength = 20;
+    this.schemeLength = 50;
     this.columnCount = this.getColumnCount();
     this.scheme = this.generateScheme(this.schemeLength);
 
@@ -51,7 +51,10 @@ export class ContactComponent implements OnInit {
       return Math.ceil(this.schemeLength);
   }
   scrollToSchemeBegin() {
-    this.pageScrollService.start(PageScrollInstance.simpleInstance(document, '#column-0'));
+    this.scrollTo('#column-0');
+  }
+  scrollTo(id) {
+    this.pageScrollService.start(PageScrollInstance.simpleInstance(document, id));
   }
   updateState(elem) {
     switch (elem.kind) {
@@ -65,6 +68,8 @@ export class ContactComponent implements OnInit {
         default:
             console.error("Can't recognize element: "+elem);
     }
+
+    this.scrollTo('#video');
   }
 
   changeVideoRate() {
