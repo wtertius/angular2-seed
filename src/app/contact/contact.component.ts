@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import CustomValidators from '../forms/CustomValidators';
 import schemes from './contact.schemes';
 import dictionary from './contact.dictionary';
+import {PageScrollConfig} from 'ng2-page-scroll';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +11,6 @@ import dictionary from './contact.dictionary';
 })
 
 export class ContactComponent implements OnInit {
-  contactForm: FormGroup;
   state:{
       position: string,
       action:   string,
@@ -24,15 +23,11 @@ export class ContactComponent implements OnInit {
   actions: {};
   positionAbilities: {};
   translations: {};
-  constructor(private formBuilder: FormBuilder) {}
+  constructor() {
+      PageScrollConfig.defaultDuration = 200;
+  }
 
   ngOnInit() {
-    this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, CustomValidators.validateEmail]],
-      content: ['', [Validators.required, Validators.minLength(10)]]
-    });
-
     this.state = {
         action: "shadow",
         video: "shadow__mirror_grip__shadow_position",
