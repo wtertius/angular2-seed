@@ -3,28 +3,25 @@ h2 {
 }
 
 .scheme-generator {
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: none;
     margin-bottom: none;
 }
 
-.scheme {
-    display: table;
-}
-.scheme-row {
-    display: table-row;
-}
-
 .series {
-    display: table-cell;
-    margin-right: 40px;
+    padding-top: 35px;
 }
 
-.demo {
-    display: table-cell;
-    padding-top: 10px;
+.column {
+    padding-bottom: 35px;
+
+    min-width: 400px;
+    min-height: 200px;
+
+    height: 93%; /* src/app/contact/contact.component.ts : columnHeightFraction */
+
+    overflow: auto;
 }
 
 .image {
@@ -41,13 +38,17 @@ img {
     margin: 10px;
     height: 20px;
     color: #323232;
+
+    overflow: hidden;
 }
 .kind-action {
     margin: 10px;
-    height: 30px;
+    height: 40px;
 
     font-weight: bold;
     font-size: 30px;
+
+    overflow: hidden;
 }
 
 .kind-position img {

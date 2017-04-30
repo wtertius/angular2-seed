@@ -9,6 +9,7 @@ import dictionary from './contact.dictionary';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact-component.css']
 })
+
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   state:{
@@ -17,6 +18,9 @@ export class ContactComponent implements OnInit {
       video:    string
   };
   scheme: any[];
+  schemeByColumns: any[];
+  schemeLength: number;
+  columnCount: number;
   actions: {};
   positionAbilities: {};
   translations: {};
@@ -38,13 +42,20 @@ export class ContactComponent implements OnInit {
     this.actions = this.getActions();
     this.translations = this.buildTranslations();
     //this.actions = this.translate();
-
     this.positionAbilities = this.getPositionAbilities(schemes.actions);
 
-    this.scheme = this.generateScheme(20);
+    this.schemeLength = 20;
+    this.columnCount = this.getColumnCount();
+    this.scheme = this.generateScheme(this.schemeLength);
+
+    this.schemeByColumns = this.divideSchemeByColumns()
+    console.log(this.schemeByColumns);
 
     document.querySelector('video').defaultPlaybackRate = 0.5;
     // TODO Check video exists for each action
+  }
+  getColumnCount() {
+      return Math.ceil(this.schemeLength);
   }
   updateState(elem) {
     switch (elem.kind) {
@@ -105,6 +116,36 @@ export class ContactComponent implements OnInit {
 
     return scheme;
   }
+
+    divideSchemeByColumns() {
+        const positionHeigth = 30;
+        const actionHeigth = 50;
+        const columnHeightFraction = 0.93; // src/app/contact/contact-component.css .column : height
+
+        var elemsPerColumn = Math.floor(
+            document.documentElement.clientHeight * columnHeightFraction / (positionHeigth + actionHeigth));
+        var columnNumber = Math.ceil(this.scheme.length / (2*elemsPerColumn));
+
+        var schemeByColumns = [];
+
+        for (var j = 0; j < columnNumber; j++) {
+            schemeByColumns[j] = [];
+        }
+
+        for (var i = 0; i < this.scheme.length; i += 2) {
+            var position = this.scheme[i];
+            var action = this.scheme[i+1];
+
+            var j = Math.floor(i/(2*elemsPerColumn));
+            schemeByColumns[j].push(position);
+            if (action !== undefined) {
+                schemeByColumns[j].push(action);
+            }
+        }
+
+        return schemeByColumns;
+    }
+
   getRandomElem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
