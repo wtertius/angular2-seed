@@ -33,7 +33,6 @@ export class HustleElementsComponent implements OnInit {
         const schemeLength = 50;
 		var actions = elements.GetActions();
 		this.flatenActions = this.flaten(actions);
-		console.log(this.flatenActions);
 
         document.querySelector('video').defaultPlaybackRate = 0.5;
         // TODO Check video exists for each action
