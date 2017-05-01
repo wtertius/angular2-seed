@@ -1,5 +1,49 @@
+import elements from './hustle.elements';
+
 export default class dictionary {
     static shouldBeUpdated = false;
+    translations: {};
+
+    ngOnInit() {
+        this.translations = this.buildTranslations();
+    }
+
+    static t(s) {
+        return this.translations[s] || s;
+    }
+
+    buildTranslations() {
+        if (!dictionary.shouldBeUpdated) {
+            return dictionary.translations;
+        }
+
+        var translations = dictionary.translations;
+        var actions = elements.GetActions();
+
+        for (var action in actions) {
+            if (translations[action] === undefined) {
+                translations[action] = "";
+            }
+
+            var desc = actions[action];
+            for (var i in desc.begin) {
+                var position = desc.begin[i];
+                if (translations[position] === undefined) {
+                    translations[position] = "";
+                }
+            }
+            for (var i in desc.end) {
+                var position = desc.end[i];
+                if (translations[position] === undefined) {
+                    translations[position] = "";
+                }
+            }
+        }
+
+        console.log(translations);
+
+        return translations;
+    }
     static translations = {
         // Actions
         "american_grip_reflection": "",

@@ -1,5 +1,34 @@
-export default class schemes {
+export default class elements {
     static startPosition = "straight_grip";
+
+    static GetActions() {
+        var actions = this.actions;
+        for (var action in actions) {
+            var desc = actions[action];
+
+            if (desc.as !== undefined) {
+                desc = actions[desc.as];
+            }
+
+            if (desc.begin.constructor !== Array) {
+                desc.begin = [desc.begin];
+            }
+            if (desc.end.constructor !== Array) {
+                desc.end = [desc.end];
+            }
+
+            if (desc.begin === undefined) {
+                console.error("Action '"+action
+                    +"' doesn't have begin in description '"+desc+"' ");
+                continue;
+            }
+
+            actions[action] = desc;
+        }
+
+        return actions;
+    }
+
     // TODO Choose level: "beginner", "middle", "professional"
     static actions = {
         "under_wing_in": {
