@@ -7,11 +7,11 @@ import {PageScrollConfig, PageScrollInstance, PageScrollService} from 'ng2-page-
 
 @Component({
   selector: 'app-hustle',
-  templateUrl: './hustle.component.html',
-  styleUrls: ['./hustle.component.css']
+  templateUrl: './hustle.scheme.component.html',
+  styleUrls: ['./hustle.scheme.component.css']
 })
 
-export class HustleComponent implements OnInit {
+export class HustleSchemeComponent implements OnInit {
     state:{
         position: string,
         action:   string,

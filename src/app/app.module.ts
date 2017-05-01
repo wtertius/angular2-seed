@@ -8,7 +8,8 @@ import { HttpModule } from '@angular/http';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { AboutComponent } from './about/about.component';
-import { HustleComponent } from './hustle/hustle.component';
+import { HustleSchemeComponent } from './hustle/hustle.scheme.component';
+import { HustleElementsComponent } from './hustle/hustle.elements.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 
@@ -16,7 +17,8 @@ import { ContactComponent } from './contact/contact.component';
   declarations: [
     AppComponent,
     AboutComponent,
-    HustleComponent,
+    HustleSchemeComponent,
+    HustleElementsComponent,
     ContactComponent
   ],
   imports: [

@@ -29,6 +29,10 @@ export default class elements {
         return actions;
     }
 
+	static GetVideoName(action, begin, end) {
+		return action + "__" + begin + "__" + end
+	}
+
     // TODO Choose level: "beginner", "middle", "professional"
     static actions = {
         "under_wing_in": {

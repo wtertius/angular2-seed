@@ -41,7 +41,7 @@ export default class Scheme {
             range.push({
                 kind: "action",
                 name: action,
-                video: action + "__" + currentPosition + "__" + end
+                video: elements.GetVideoName(action, currentPosition, end)
             });
             range.push({
                 kind: "position",
