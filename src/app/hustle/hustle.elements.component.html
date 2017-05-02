@@ -1,20 +1,22 @@
 <div class="scheme-generator">
-    <h2 pageScroll href="#column-0">Scheme<sub>&#8623;</sub></h2>
+    <h2>Elements</h2>
 
     <div class="scheme">
-        <div class="series row">
-            <div *ngFor="let action of flatenActions" class="column col-md-4">
-                <div class="kind-position" (click)="updateState(elem)">
-                    <img src="public/image/dancing_couple_position.jpg">
-                    <div class="name">{{ t(action.begin) }}</div>
-                </div>
-                <div class="kind-action" (click)="updateState(elem)">
-                    <img src="public/image/dancing_couple_action.jpg">
-                    <div class="name">{{ t(action.name) }}</div>
-                </div>
-                <div class="kind-position" (click)="updateState(elem)">
-                    <img src="public/image/dancing_couple_position.jpg">
-                    <div class="name">{{ t(action.end) }}</div>
+        <div class="series">
+            <div *ngFor="let action of flatenActions" class="row">
+                <div class="column col-md-4">
+                    <div class="kind-position" (click)="updateState(elem)">
+                        <img src="public/image/dancing_couple_position.jpg">
+                        <div class="name">{{ t(action.begin) }}</div>
+                    </div>
+                    <div class="kind-action" (click)="updateState(elem)">
+                        <img src="public/image/dancing_couple_action.jpg">
+                        <div class="name">{{ t(action.name) }}</div>
+                    </div>
+                    <div class="kind-position" (click)="updateState(elem)">
+                        <img src="public/image/dancing_couple_position.jpg">
+                        <div class="name">{{ t(action.end) }}</div>
+                    </div>
                 </div>
             </div>
         </div>

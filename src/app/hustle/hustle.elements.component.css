@@ -1,7 +1,7 @@
 h2 {
-    text-align: center;
+    text-align: left;
     font-weight: bold;
-    cursor: pointer;
+    padding-left: 56px;
 }
 
 .scheme-generator {
@@ -12,13 +12,10 @@ h2 {
 }
 
 .column {
-    padding-top: 15px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     min-width: 400px;
-    min-height: 200px;
-
-    height: 93%; /* src/app/hustle/hustle.component.ts : columnHeightFraction */
 
     overflow: auto;
 }
