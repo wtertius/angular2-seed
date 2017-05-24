@@ -4,11 +4,13 @@ import elements from './model/hustle.elements';
 import Scheme from './model/hustle.scheme';
 import dictionary from './model/hustle.dictionary';
 import {PageScrollConfig, PageScrollInstance, PageScrollService} from 'ng2-page-scroll';
+import { CookieService } from 'ng2-cookies';
 
 @Component({
   selector: 'app-hustle',
   templateUrl: './hustle.elements.component.html',
-  styleUrls: ['./hustle.elements.component.css']
+  styleUrls: ['./hustle.elements.component.css'],
+  providers: [CookieService]
 })
 
 export class HustleElementsComponent implements OnInit {
@@ -18,7 +20,10 @@ export class HustleElementsComponent implements OnInit {
         video:    string
     };
     flatenActions: any[];
-    constructor(private pageScrollService: PageScrollService) {
+    constructor(
+        public cookieService: CookieService,
+        private pageScrollService: PageScrollService
+    ) {
         PageScrollConfig.defaultDuration = 200;
     }
 
@@ -39,17 +44,8 @@ export class HustleElementsComponent implements OnInit {
     }
 
     updateState(elem) {
-        switch (elem.kind) {
-            case "action":
-                this.state.action = elem.name;
-                this.state.video  = elem.video;
-                break;
-            case "position":
-                this.state.position = elem.name;
-                break;
-            default:
-                console.error("Can't recognize element: "+elem);
-        }
+        this.state.action = elem.name;
+        this.state.video  = elem.video;
 
         this.scrollTo('#video');
     }

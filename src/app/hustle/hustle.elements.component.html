@@ -5,15 +5,15 @@
         <div class="series">
             <div *ngFor="let action of flatenActions" class="row">
                 <div class="column col-md-4">
-                    <div class="kind-position" (click)="updateState(elem)">
+                    <div class="kind-position" (click)="updateState(action)">
                         <img src="public/image/dancing_couple_position.jpg">
                         <div class="name">{{ t(action.begin) }}</div>
                     </div>
-                    <div class="kind-action" (click)="updateState(elem)">
+                    <div class="kind-action" (click)="updateState(action)">
                         <img src="public/image/dancing_couple_action.jpg">
                         <div class="name">{{ t(action.name) }}</div>
                     </div>
-                    <div class="kind-position" (click)="updateState(elem)">
+                    <div class="kind-position" (click)="updateState(action)">
                         <img src="public/image/dancing_couple_position.jpg">
                         <div class="name">{{ t(action.end) }}</div>
                     </div>
