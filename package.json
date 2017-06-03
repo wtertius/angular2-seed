@@ -7,7 +7,7 @@
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
     "start": "npm run server",
-    "test": "jasmine"
+    "test": "karma start karma.conf.js"
   },
   "contributors": [
     "Dmitry <wtertius@gmail.com>"
@@ -43,6 +43,11 @@
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.25.0",
     "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.2",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
     "raw-loader": "^0.5.1",
     "to-string-loader": "^1.1.4",
     "typescript": "~2.0.10",
