@@ -6,11 +6,13 @@
     "build": "webpack --progress -p",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
-    "start": "npm run server"
+    "start": "npm run server",
+    "test": "jasmine"
   },
   "contributors": [
     "Dmitry <wtertius@gmail.com>"
   ],
+  "private": true,
   "license": "Commercial",
   "dependencies": {
     "@angular/common": "~2.2.1",
@@ -40,6 +42,7 @@
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.25.0",
+    "jasmine": "^2.6.0",
     "raw-loader": "^0.5.1",
     "to-string-loader": "^1.1.4",
     "typescript": "~2.0.10",
